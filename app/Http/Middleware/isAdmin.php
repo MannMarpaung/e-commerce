@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class isAdmin
@@ -15,6 +16,12 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (Auth::user() && Auth::user()->role == 'admin') {
+            return view('pages.admin.index');
+        } else {
+            return view('pages.user.index');
+        }
+
         return $next($request);
     }
 }
