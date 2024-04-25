@@ -226,7 +226,7 @@
                     </li>
 
                 </ul><!-- End Profile Dropdown Items -->
-            </li><!-- End Profile Nav -->
+            </li><!-- End Profile Nav 2 -->
 
         </ul>
     </nav><!-- End Icons Navigation -->
