@@ -20,7 +20,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ route('admin.product.index') }}" class="{{ request()->routeIs('admin.product.index') ? 'active' : '' }}">
               <i class="bi bi-circle"></i><span>Data Product</span>
             </a>
           </li>
