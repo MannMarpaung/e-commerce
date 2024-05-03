@@ -101,7 +101,7 @@ class CategoryController extends Controller
                 $category->update($data);
 
             } else {
-                // delete old image2
+                // delete old image3
                 Storage::disk('local')->delete('public/category/' . basename($category->image));
                 
                 // store new image
