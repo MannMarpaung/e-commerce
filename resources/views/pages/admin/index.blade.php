@@ -9,7 +9,7 @@
 
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house-door"></i></a></li>
+          <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="bi bi-house-door"></i></a></li>
           <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
         </ol>
       </nav>
