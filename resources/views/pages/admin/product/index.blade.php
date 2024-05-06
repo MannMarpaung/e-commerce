@@ -24,7 +24,7 @@
                 </a>
             </div>
 
-            <!-- Table with stripped rows 3-->
+            <!-- Table with stripped rows 4-->
             <table class="table datatable">
                 <thead>
                     <tr>
