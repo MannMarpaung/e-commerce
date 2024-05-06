@@ -18,7 +18,6 @@
             </nav>
 
             <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
-
                 @csrf
                 @method('POST')
                 <div class="mb-2">
@@ -43,15 +42,15 @@
                     <input type="text" class="form-control" id="inputPrice" name="price" value="{{ old('price') }}">
                 </div>
 
-                <div class="mb-2">
+                <div class="mb-2 relative">
                     <label class="col-sm-2 col-form-label">Product Description</label>
-                    <div class="quill-editor-default">
+                    <textarea class="form-control col-12" name="description">
 
-                    </div>
+                    </textarea>
                 </div>
 
                 <div class="d-flex justify-content-end mt-5">
-                    <button class="btn btn-primary" type="submit">
+                    <button class="btn btn-primary">
                         <i class="bi bi-plus"></i>
                         Create Product
                     </button>

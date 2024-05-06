@@ -32,7 +32,6 @@
                         <th>Name</th>
                         <th>Category</th>
                         <th>Price</th>
-                        <th>Description</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -41,10 +40,21 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->name }}</td>
-                            <td>{{ $row->category_id }}</td>
+                            <td>{{ $row->category->name }}</td>
                             <td>{{ $row->price }}.</td>
-                            <td>{{ $row->description }}</td>
-                            <td>Action</td>
+                            <td>
+                                <a href="{{ route('admin.product.edit', $row->id) }}" class="btn btn-warning">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <form action="{{ route('admin.product.destroy', $row->id) }}" method="post"
+                                    class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     @empty
                         <tr>
