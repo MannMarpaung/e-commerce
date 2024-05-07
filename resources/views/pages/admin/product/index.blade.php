@@ -24,7 +24,7 @@
                 </a>
             </div>
 
-            <!-- Table with stripped rows 5-->
+            <!-- Table with stripped rows -->
             <table class="table datatable">
                 <thead>
                     <tr>
@@ -43,6 +43,9 @@
                             <td>{{ $row->category->name }}</td>
                             <td>{{ $row->price }}.</td>
                             <td>
+                                <a href="{{ route('admin.product.gallery.index', $row->id) }}" class="btn btn-primary">
+                                    <i class="bi bi-card-image"></i>
+                                </a>
                                 <a href="{{ route('admin.product.edit', $row->id) }}" class="btn btn-warning">
                                     <i class="bi bi-pencil"></i>
                                 </a>
