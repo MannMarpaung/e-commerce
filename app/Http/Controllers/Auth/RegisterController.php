@@ -38,7 +38,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Create a new controller instance.
+     * Create a new controller instance.2
      *
      * @return void
      */
