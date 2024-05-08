@@ -16,10 +16,19 @@
                 </ol>
             </nav>
 
-            <a href="" class="btn btn-primary">
-                <i class="bi bi-plus"></i>
-                Add Gallery
+            <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i>
+                Back
             </a>
+
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#createProductGalleryModal">
+                    <i class="bi bi-plus"></i>
+                    Add Product Gallery
+                </button>
+                @include('pages.admin.gallery.modal-create')
+            </div>
 
             <table class="table">
                 <thead>
@@ -30,11 +39,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    @forelse ($product->product_galleries as $row)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td><img src="{{ url('storage/product/gallery', $row->image) }}" alt="" srcset="" class="img-thumbnail" width="100"></td>
+                            <td>
+                                <form action="{{ route('admin.product.gallery.destroy', [$product->id, $row->id]) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger" type="submit" class="d-inline">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3" class="text-center">Data Is Empty</td>
+                        </tr>
+                    @endforelse
                 </tbody>
 
             </table>

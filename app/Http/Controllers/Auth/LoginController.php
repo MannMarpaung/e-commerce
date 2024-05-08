@@ -34,6 +34,8 @@ class LoginController extends Controller
         elseif (auth()->user()->role == 'user')
         {
             return '/user/dashboard';
+        } else {
+            return '/home';
         }
     }
 
