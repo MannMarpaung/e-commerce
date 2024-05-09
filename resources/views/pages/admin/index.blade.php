@@ -6,7 +6,7 @@
 
     <div class="section dashboard">
 
-        <!-- Customers Card 4-->
+        <!-- Customers Card -->
         <div class="col-xxl-4 col-xl-12">
 
             <div class="card info-card customers-card">
