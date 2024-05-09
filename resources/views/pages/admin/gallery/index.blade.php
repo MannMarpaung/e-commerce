@@ -16,12 +16,13 @@
                 </ol>
             </nav>
 
+            <div class="d-flex justify-content-between my-4">
+                
             <a href="{{ route('admin.product.index') }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left"></i>
                 Back
             </a>
 
-            <div class="d-flex justify-content-end">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                     data-bs-target="#createProductGalleryModal">
                     <i class="bi bi-plus"></i>

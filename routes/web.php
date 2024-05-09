@@ -19,6 +19,9 @@ Route::name('admin.')->prefix('admin')->middleware('admin')->group(function() {
     Route::resource('/category', CategoryController::class)->except('show', 'edit');
     Route::resource('/product', ProductController::class);
     Route::resource('/product.gallery', ProductGalleryController::class)->except('create', 'show', 'edit', 'update');
+
+    Route::get('/alluser', [\App\Http\Controllers\Admin\ProfileController::class, 'allUser'])->name('allUser');
+    Route::put('/reset-password/{id}', [App\Http\Controllers\Admin\ProfileController::class, 'resetPassword'])->name('resetPassword');
 });
 
 Route::name('user.')->prefix('user')->middleware('user')->group(function() {

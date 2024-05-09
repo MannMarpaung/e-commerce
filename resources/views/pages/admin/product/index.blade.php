@@ -41,7 +41,7 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->category->name }}</td>
-                            <td>{{ $row->price }}.</td>
+                            <td>{{ $row->price }}</td>
                             <td>
                                 <a href="{{ route('admin.product.gallery.index', $row->id) }}" class="btn btn-primary">
                                     <i class="bi bi-card-image"></i>

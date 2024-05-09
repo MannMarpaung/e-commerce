@@ -3,7 +3,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{{ route('admin.dashboard') }}">
+        <a class="nav-link {{ request()->routeIs('admin.dashboard') ? '' : 'collapsed' }}" href="{{ route('admin.dashboard') }}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -26,6 +26,13 @@
           </li>
         </ul>
       </li><!-- End Components Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link {{ request()->routeIs('admin.allUser') ? '' : 'collapsed' }}" href="{{ route('admin.allUser') }}">
+          <i class="bi bi-person"></i>
+          <span>Users</span>
+        </a>
+      </li>
 
     </ul>
 
