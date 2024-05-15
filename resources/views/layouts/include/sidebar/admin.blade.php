@@ -28,6 +28,24 @@
       </li><!-- End Components Nav -->
 
       <li class="nav-item">
+        <a class="nav-link {{ request()->routeIs('admin.transaction.*', 'admin.my-transaction.*') ? '' : 'collapsed' }}" data-bs-target="#components-transaction" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Transaction</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-transaction" class="nav-content collapse {{ request()->routeIs('admin.transaction.*', 'admin.my-transaction.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{{ route('admin.transaction.index') }}" class="{{ request()->routeIs('admin.transaction.index') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>Transaction</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{ route('admin.my-transaction.index') }}" class="{{ request()->routeIs('admin.my-transaction.index', 'admin.my-transaction.show') ? 'active' : '' }}">
+              <i class="bi bi-circle"></i><span>My Transaction</span>
+            </a>
+          </li>
+        </ul>
+      </li><!-- End Components Nav -->
+
+      <li class="nav-item">
         <a class="nav-link {{ request()->routeIs('admin.allUser') ? '' : 'collapsed' }}" href="{{ route('admin.allUser') }}">
           <i class="bi bi-person"></i>
           <span>Users</span>
