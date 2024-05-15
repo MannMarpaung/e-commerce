@@ -72,7 +72,7 @@
             </aside>
         </div>
     </section>
-    <!-- END: ASIDE MENU -->4
+    <!-- END: ASIDE MENU -->
 
     <!-- START: FOOTER -->
     <footer class="flex text-center px-4 py-8 justify-center">
