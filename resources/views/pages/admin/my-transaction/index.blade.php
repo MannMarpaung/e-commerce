@@ -32,18 +32,26 @@
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Total Price</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($myTransaction as $row)
-                    <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $auth()->user()->name }}</td>
-                        <td>{{ $row->name }}</td>
-                        <td>{{ $row->email }}</td>
-                        <td>{{ $row->phone }}</td>
-                        <td>{{ $row->price }}</td>
-                    </tr>
+                        <tr>
+                            <th scope="row">{{ $loop->iteration }}</th>
+                            <td>{{ auth()->user()->name }}</td>
+                            <td>{{ $row->name }}</td>
+                            <td>{{ $row->email }}</td>
+                            <td>{{ $row->phone }}</td>
+                            <td>{{ $row->total_price }}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#showMyTransactionModal{{ $row->id }}">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                                @include('pages.admin.my-transaction.show-my-transaction')
+                            </td>
+                        </tr>
                     @empty
                         <tr>
                             <td colspan="6" class="text-center">Data is Empt</td>
