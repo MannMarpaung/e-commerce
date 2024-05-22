@@ -1,7 +1,7 @@
 @extends('layouts.parent')
 
 @section('title', 'Transaction')
-{{-- 1 --}}
+{{-- 2 --}}
 @section('content')
 
 
