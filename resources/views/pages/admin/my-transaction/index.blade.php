@@ -32,6 +32,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Total Price</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -45,16 +46,33 @@
                             <td>{{ $row->phone }}</td>
                             <td>{{ $row->total_price }}</td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#showMyTransactionModal{{ $row->id }}">
-                                    <i class="bi bi-eye"></i>
-                                </button>
-                                @include('pages.admin.my-transaction.show-my-transaction')
+                                @if ($row->status == 'EXPIRED')
+                                    <span class="badge bg-danger">Expired</span>
+                                @elseif ($row->status == 'PENDING')
+                                    <span class="badge bg-warning">Pending</span>
+                                @elseif ($row->status == 'SETTLEMENT')
+                                    <span class="badge bg-info">Settlement</span>
+                                @else
+                                    <span class="badge bg-success">Success</span>
+                                @endif
+                            </td>
+                            <td>
+                                @if (Auth::user()->role == 'admin')
+                                    <a href="{{ route('admin.my-transaction.show', $row->id) }}" class="btn btn-info btn-sm">
+                                        <i class="bi bi-eye"></i>
+                                        Detail
+                                    </a>
+                                @else
+                                    <a href="{{ route('user.my-transaction.show', $row->id) }}" class="btn btn-info btn-sm">
+                                        <i class="bi bi-eye"></i>
+                                        Detail
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="text-center">Data is Empt</td>
+                            <td colspan="8" class="text-center">Data is Empt</td>
                         </tr>
                     @endforelse
                 </tbody>
